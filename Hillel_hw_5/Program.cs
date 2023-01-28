@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Text;
-
-namespace Hillel_hw_5
+﻿namespace Hillel_hw_5
 {
     internal class Program
     {

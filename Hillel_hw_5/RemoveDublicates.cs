@@ -24,7 +24,6 @@ namespace Hillel_hw_5
             RegexOptions.IgnoreCase     //флаг игнора регистра           
             );
 
-
         public static string Remove(string inputText)
         {
             return _dublFinder.Replace(inputText, "${dubl1}");
