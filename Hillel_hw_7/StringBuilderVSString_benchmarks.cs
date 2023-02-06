@@ -40,7 +40,7 @@ namespace Hillel_hw_7
 
     public class StringBuilderVSString_benchmark_50_2500_3000
     {
-        private List<string> _stringList = RandomStringRowsGenerator.Generate(50, 2000, 3000);
+        private List<string> _stringList = RandomStringRowsGenerator.Generate(50, 2500, 3000);
 
         [Benchmark]
         public void StringPlusStringPlus()
@@ -111,7 +111,7 @@ namespace Hillel_hw_7
 
     public class StringBuilderVSString_benchmark_100_2500_3000
     {
-        private List<string> _stringList = RandomStringRowsGenerator.Generate(100, 2000, 3000);
+        private List<string> _stringList = RandomStringRowsGenerator.Generate(100, 2500, 3000);
 
         [Benchmark]
         public void StringPlusStringPlus()
