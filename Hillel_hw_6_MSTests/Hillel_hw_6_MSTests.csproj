@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hillel_hw_6\Hillel_hw_6.csproj" />
+    <ProjectReference Include="..\Hillel_hw_6_ClassLibrary\Hillel_hw_6_ClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_5", "Hillel_hw_5\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkTests", "BenchmarkTests\BenchmarkTests.csproj", "{F64C26D2-9F13-456A-A1BC-4AEE83B71148}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_6", "Hillel_hw_6\Hillel_hw_6.csproj", "{FE10248B-960D-4458-924A-874E5125762B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_6_MSTests", "Hillel_hw_6_MSTests\Hillel_hw_6_MSTests.csproj", "{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_6_MSTests", "Hillel_hw_6_MSTests\Hillel_hw_6_MSTests.csproj", "{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_6_ClassLibrary", "Hillel_hw_6_ClassLibrary\Hillel_hw_6_ClassLibrary.csproj", "{C8FBED56-4896-4350-83A2-2F43B9E2A87A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{F64C26D2-9F13-456A-A1BC-4AEE83B71148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F64C26D2-9F13-456A-A1BC-4AEE83B71148}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F64C26D2-9F13-456A-A1BC-4AEE83B71148}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE10248B-960D-4458-924A-874E5125762B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE10248B-960D-4458-924A-874E5125762B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE10248B-960D-4458-924A-874E5125762B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE10248B-960D-4458-924A-874E5125762B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FBED56-4896-4350-83A2-2F43B9E2A87A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FBED56-4896-4350-83A2-2F43B9E2A87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FBED56-4896-4350-83A2-2F43B9E2A87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FBED56-4896-4350-83A2-2F43B9E2A87A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

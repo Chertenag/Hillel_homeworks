@@ -1,6 +1,6 @@
-﻿namespace Hillel_hw_6
+﻿namespace Hillel_hw_6_ClassLibrary
 {
-    public class SomeRefAndOut
+    public static class SomeRefAndOut
     {
         //Меняет местами значения двух целочисельных переменных.
         public static void SwapTwoNumbers(ref int a, ref int b)
@@ -21,7 +21,7 @@
         }
 
         //Возвращает символ строки в указанной позиции (если под "позицией" подразумевался именно индекс).
-        public static void OutCharByIndex (string text, int index, out char character )
+        public static void OutCharByIndex(string text, int index, out char character)
         {
             character = text[index];
         }

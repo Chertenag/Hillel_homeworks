@@ -1,4 +1,4 @@
-using Hillel_hw_6;
+using Hillel_hw_6_ClassLibrary;
 
 namespace Hillel_hw_6_MSTests
 {
