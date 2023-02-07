@@ -4,6 +4,13 @@ namespace Hillel_hw_7
 {
     public class StringBuilderVSString
     {
+        public static string StringPlusStringPlus_10rows(List<string> strList)
+        {
+            string rezult = strList[0] + strList[1] + strList[2] + strList[3] + strList[4] +
+                strList[5] + strList[6] + strList[7] + strList[8] + strList[9];
+            return rezult;
+        }
+
         public static string StringPlusStringPlus_50rows(List<string> strList)
         {
             string rezult = strList[0] + strList[1] + strList[2] + strList[3] + strList[4] +

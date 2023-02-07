@@ -2,6 +2,77 @@
 
 namespace Hillel_hw_7
 {
+
+    public class StringBuilderVSString_benchmark_10_100_200
+    {
+        private List<string> _stringList = RandomStringRowsGenerator.Generate(10, 100, 200);
+
+        [Benchmark]
+        public void StringPlusStringPlus()
+        {
+            StringBuilderVSString.StringPlusStringPlus_10rows(_stringList);
+        }
+
+        [Benchmark]
+        public void StringPlusInCycle()
+        {
+            StringBuilderVSString.StringPlusInCycle(_stringList);
+        }
+
+        [Benchmark]
+        public void StringBuilderAppendInCycle()
+        {
+            StringBuilderVSString.StringBuilderAppendInCycle(_stringList);
+        }
+
+        [Benchmark]
+        public void StringContactListToArray()
+        {
+            StringBuilderVSString.StringContactListToArray(_stringList);
+        }
+
+        [Benchmark]
+        public void StringJoinListToArray()
+        {
+            StringBuilderVSString.StringJoinListToArray(_stringList);
+        }
+    }
+
+    public class StringBuilderVSString_benchmark_10_2500_3000
+    {
+        private List<string> _stringList = RandomStringRowsGenerator.Generate(10, 2500, 3000);
+
+        [Benchmark]
+        public void StringPlusStringPlus()
+        {
+            StringBuilderVSString.StringPlusStringPlus_10rows(_stringList);
+        }
+
+        [Benchmark]
+        public void StringPlusInCycle()
+        {
+            StringBuilderVSString.StringPlusInCycle(_stringList);
+        }
+
+        [Benchmark]
+        public void StringBuilderAppendInCycle()
+        {
+            StringBuilderVSString.StringBuilderAppendInCycle(_stringList);
+        }
+
+        [Benchmark]
+        public void StringContactListToArray()
+        {
+            StringBuilderVSString.StringContactListToArray(_stringList);
+        }
+
+        [Benchmark]
+        public void StringJoinListToArray()
+        {
+            StringBuilderVSString.StringJoinListToArray(_stringList);
+        }
+    }
+
     public class StringBuilderVSString_benchmark_50_100_200
     {
         private List<string> _stringList = RandomStringRowsGenerator.Generate(50, 100, 200);
