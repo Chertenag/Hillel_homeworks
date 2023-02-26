@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkTests", "Benchmark
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_6_MSTests", "Hillel_hw_6_MSTests\Hillel_hw_6_MSTests.csproj", "{DA5EDA9C-B722-4E5E-92D7-9EE72134FDE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_6_ClassLibrary", "Hillel_hw_6_ClassLibrary\Hillel_hw_6_ClassLibrary.csproj", "{C8FBED56-4896-4350-83A2-2F43B9E2A87A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_6_ClassLibrary", "Hillel_hw_6_ClassLibrary\Hillel_hw_6_ClassLibrary.csproj", "{C8FBED56-4896-4350-83A2-2F43B9E2A87A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_7", "Hillel_hw_7\Hillel_hw_7.csproj", "{7AA6E2B6-66DB-45E4-8312-0F3B8ADD0696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_7", "Hillel_hw_7\Hillel_hw_7.csproj", "{7AA6E2B6-66DB-45E4-8312-0F3B8ADD0696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_8", "Hillel_hw_8\Hillel_hw_8.csproj", "{2D8B1A44-A754-4D36-8C75-B9F817BA6A1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7AA6E2B6-66DB-45E4-8312-0F3B8ADD0696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AA6E2B6-66DB-45E4-8312-0F3B8ADD0696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AA6E2B6-66DB-45E4-8312-0F3B8ADD0696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8B1A44-A754-4D36-8C75-B9F817BA6A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8B1A44-A754-4D36-8C75-B9F817BA6A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8B1A44-A754-4D36-8C75-B9F817BA6A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8B1A44-A754-4D36-8C75-B9F817BA6A1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
