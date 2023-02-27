@@ -1,10 +1,15 @@
-﻿using System.Security.Cryptography;
-
-namespace Hillel_hw_10
+﻿namespace Hillel_hw_10
 {
+    /// <summary>
+    /// Основной класс приложения.
+    /// </summary>
     internal class Program
     {
-        static void Main(string[] _)
+        /// <summary>
+        /// Входная точка приложения.
+        /// </summary>
+        /// <param name="args">Входные параметры (аргументы).</param>
+        private static void Main(string[] args)
         {
             Console.ReadLine();
             ForCycleThreadPooolTest(1000, 100, 1000);
