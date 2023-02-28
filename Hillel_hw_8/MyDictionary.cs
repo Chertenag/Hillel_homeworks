@@ -1,11 +1,16 @@
-﻿using System.Collections;
-using System.Diagnostics.CodeAnalysis;
-
-namespace Hillel_hw_8
+﻿namespace Hillel_hw_8
 {
+    using System.Collections;
+    using System.Diagnostics.CodeAnalysis;
+
+    /// <summary>
+    /// Реализация словаря на основе "Хеш таблиц".
+    /// </summary>
+    /// <typeparam name="TKey">Ключ.</typeparam>
+    /// <typeparam name="TValue">Значение.</typeparam>
     public class MyDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
-        private MyHashTable<TKey, TValue> hashtable = new();
+        private MyHashTable<TKey, TValue> hashtable = new MyHashTable<TKey, TValue>();
 
         /// <summary>
         /// Возвращает список всех ключей словаря.
@@ -24,10 +29,10 @@ namespace Hillel_hw_8
 
         /// <summary>
         /// Так как я не пошел по пути использования уже существующего класса Hashtable, а слепил свой,
-        /// то пусть в моей имплементации словаря будет словарь всегда доступный для записи.
-        /// Хотя по сути он, у меня, ни на что не влияет, а подглядывть в реализацию Dictionary не интересно.
+        /// то пусть в моей имплементации словарь будет всегда доступный для записи.
+        /// Хотя по сути этот параметр у меня ни на что не влияет, а подглядывть в реализацию Dictionary не интересно.
         /// </summary>
-        public bool IsReadOnly => throw new NotImplementedException();
+        public bool IsReadOnly => false;
 
         /// <summary>
         /// Возвращает или задаёт значение по ключу.
@@ -79,7 +84,7 @@ namespace Hillel_hw_8
         {
             if (item.Key == null)
             {
-                throw new ArgumentNullException("The TKey value cannot be null.");
+                throw new ArgumentNullException("item.TKey");
             }
 
             if (this.hashtable.CheckIfKeyExists(item.Key))
@@ -111,7 +116,7 @@ namespace Hillel_hw_8
         }
 
         /// <summary>
-        /// Проверяет ниличие элемента с ключом TKey в словаре.
+        /// Проверяет наличие элемента с ключом TKey в словаре.
         /// </summary>
         /// <param name="key">Ключ.</param>
         /// <returns>true если элемент с заданым ключём присутствует в словаре и false - если нет.</returns>
@@ -120,13 +125,18 @@ namespace Hillel_hw_8
             return this.hashtable.CheckIfKeyExists(key);
         }
 
+        /// <summary>
+        /// Копирует элементы словаря в массив, начиная с заданого индекса массива.
+        /// </summary>
+        /// <param name="array">Массив, в который бутут скопированы элементы словаря.</param>
+        /// <param name="arrayIndex">Индекс выходного массива с которого будет начато копирование.</param>
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// На самом деле я не очень пока понимаю зачем нужен Enumerator и сейчас нет особо времени, чтобы разобраться с этим ;(
+        /// На самом деле я не очень пока понимаю зачем нужен Enumerator и сейчас нет особо времени, чтобы разобраться с этим :`(.
         /// </summary>
         /// <returns>Enumerator для List&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.</returns>
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
@@ -153,20 +163,35 @@ namespace Hillel_hw_8
         }
 
         /// <summary>
-        /// 
+        /// Удаляет из словаря заданый элемент.
         /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
+        /// <param name="item">Элемент, который необходимо удалить.</param>
+        /// <returns>true если элемент удалён, false - если такого элемента нет в словаре.</returns>
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            return Remove(item.Key);
+            if (!this.hashtable.CheckIfItemExists(item))
+            {
+                return false;
+            }
+            else
+            {
+                this.hashtable.RemoveItem(item.Key);
+                return true;
+            }
         }
 
+        /// <summary>
+        /// Попытка достать значаение из таблицы по ключу.
+        /// </summary>
+        /// <param name="key">Ключ.</param>
+        /// <param name="value">Значение.</param>
+        /// <returns>true если найден элемент в таблице с заданым ключём и false - если нет.</returns>
+        /// <exception cref="ArgumentNullException">Происходит в случае, если значение TKey = null.</exception>
         public bool TryGetValue(TKey key, [MaybeNullWhen(false)] out TValue value)
         {
             if (key == null)
             {
-                throw new ArgumentNullException($"The TKey value cannot be null.");
+                throw new ArgumentNullException("item.TKey");
             }
 
             if (!this.hashtable.CheckIfKeyExists(key))
@@ -181,10 +206,13 @@ namespace Hillel_hw_8
             }
         }
 
+        /// <summary>
+        /// Опять этот Enumerator...
+        /// </summary>
+        /// <returns>Enumerator для List&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.hashtable.GetAllKeyValuePairs().GetEnumerator();
         }
     }
-
 }

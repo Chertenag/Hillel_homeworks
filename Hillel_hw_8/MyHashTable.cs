@@ -2,9 +2,9 @@
 {
     internal class MyHashTable<TKey, TValue>
     {
-        private int count = 0;
         private const int Size = 1000;
-        public List<KeyValuePair<TKey, TValue>>[] bucket = new List<KeyValuePair<TKey, TValue>>[Size];
+        private List<KeyValuePair<TKey, TValue>>[] bucket = new List<KeyValuePair<TKey, TValue>>[Size];
+        private int count = 0;
 
         public int Count => this.count;
 
@@ -19,6 +19,7 @@
             {
                 this.bucket[keyHash].Add(item);
             }
+
             this.count++;
         }
 
@@ -39,11 +40,6 @@
                 var keyHash = GetKeyHash(item.Key);
                 return this.bucket[keyHash].Exists(x => x.Key.Equals(item.Key) && x.Value.Equals(item.Value));
             }
-        }
-
-        private static int GetKeyHash(TKey key)
-        {
-            return Math.Abs(key.GetHashCode() % Size);
         }
 
         public void Clear()
@@ -86,6 +82,10 @@
         {
             return this.bucket.Where(x => x != null).SelectMany(y => y).ToList();
         }
-    }
 
+        private static int GetKeyHash(TKey key)
+        {
+            return Math.Abs(key.GetHashCode() % Size);
+        }
+    }
 }
