@@ -132,7 +132,22 @@
         /// <param name="arrayIndex">Индекс выходного массива с которого будет начато копирование.</param>
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            if (array == null)
+            {
+                throw new ArgumentNullException($"KeyValuePair<TKey, TValue>[] {array} is null.");
+            }
+
+            if (arrayIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException($"Index {arrayIndex} is less then 0.");
+            }
+
+            if (array.Length - arrayIndex < this.Count)
+            {
+                throw new ArgumentException("The number of elements in the dictionary exceeds the length of the array allocated for copying.");
+            }
+
+            Array.Copy(this.hashtable.GetAllKeyValuePairs().ToArray(), 0, array, arrayIndex, this.Count);
         }
 
         /// <summary>

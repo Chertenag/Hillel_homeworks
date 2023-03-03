@@ -59,7 +59,7 @@
         /// <returns>true если элемент присутствует в словаре и false - если нет.</returns>
         public bool CheckIfItemExists(KeyValuePair<TKey, TValue> item)
         {
-            if (this.CheckIfKeyExists(item.Key))
+            if (!this.CheckIfKeyExists(item.Key))
             {
                 return false;
             }
@@ -110,6 +110,7 @@
             var keyHash = GetKeyHash(key);
             var index = this.bucket[keyHash].FindIndex(x => x.Key != null && x.Key.Equals(key));
             this.bucket[keyHash].RemoveAt(index);
+            this.count--;
         }
 
         /// <summary>
