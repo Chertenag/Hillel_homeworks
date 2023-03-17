@@ -6,35 +6,22 @@
         {
             public static async Task ReadFileAndLength(List<string> filesPath, CancellationToken token)
             {
-                int[] results = new int[filesPath.Count];
-                try
+                List<Task<int>> tasks = new();
+                foreach (string path in filesPath)
                 {
-                    List<Task<int>> tasks = new();
-                    foreach (string path in filesPath)
-                    {
-                        tasks.Add(ReadFileAndReturnReadedLength(path, token));
-                    }
-                    results = await Task.WhenAll(tasks);
+                    tasks.Add(ReadFileAndReturnReadedLength(path, token));
                 }
-                catch (AggregateException ex)
+                var results = await Task.WhenAll(tasks);
+                foreach (var rez in results)
                 {
-                    Console.WriteLine(ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    foreach (var rez in results)
-                    {
-                        Console.WriteLine($"Chars readed: {rez}");
-                    }
+                    Console.WriteLine($"Chars readed: {rez}");
                 }
             }
 
             //Не понимаю как обработать IOException не из метода чтения файла, так чтобы не использовать заглушку в виде ещё одного метода
             //между основным методом и Task.WhenAll. Потому что Task.WhenAll выкидывает ошибку сразу как она случается в одном из Task`ов.
+            //Ещё у меня был вариант формировать строку с количеством прочитаных символов (или инфой об ошибке) в этом методе и уже её (строку) передавать дальше.
+            //Таким образом вывод результата в WhenAll мог бы включать и инфу об ошибке, а не просто 0 в кол-ве прочитаного. Но хз нужно ли это.
             private static async Task<int> ReadFileAndReturnReadedLength(string fileFullName, CancellationToken token)
             {
                 int rez = -1;
@@ -48,6 +35,11 @@
                     //Console.WriteLine(ex.Message);
                     return 0;
                 }
+                catch
+                {
+                    return 0;
+                }
+
                 return rez;
             }
 
@@ -63,53 +55,24 @@
                         throw new IOException();
                     }
                     StreamReader streamReader = new StreamReader(fileStream, System.Text.Encoding.UTF8);
-                    //Количество считываемых символов за цикл.
-                    //int charsToRead = 50;
-                    //while (fileStream.Position < fileStream.Length)
-                    //{
-                    //    token.ThrowIfCancellationRequested();
-                    //    if (fileStream.Length - fileStream.Position < charsToRead)
-                    //    {
-                    //        charsToRead = (int)(fileStream.Length - fileStream.Position);
-                    //    }
-                    //    char[] chars = new char[charsToRead];
-                    //    var readed = await streamReader.ReadBlockAsync(chars, 0, charsToRead);
-                    //    charsReaded += readed;
-                    //    //Не могу вкурить чего Position переходит в конец после первого же считывания, хотя я и указываю читать только 50 байт. 
-                    //    //Пришлось указывать позицию вручную.
-                    //    //fileStream.Position = charsReaded;
-                    //    Console.WriteLine(chars);
-                    //    await Task.Delay(100);
-                    //}
-
-                    //ReadBlock читает по char, а не по байтам, поэтому как прочитать именно по 50 байт хз (латиницу считает за 1 байт и кирилицу за 2).
+                    //ReadBlock читает по char, а не по байтам, поэтому как прочитать именно по 50 байт хз (латиницу считает за 1 байт а кирилицу за 2).
+                    //Количество чаров которые мы пытаемся прочитать.
                     int charsToRead = 50;
+                    //Массив прочитаных чаров.
                     char[] chars = new char[charsToRead];
+                    //Реальное количество прочитаных чаров.
                     int readed = 0;
                     while ((readed = await streamReader.ReadBlockAsync(chars, 0, charsToRead)) != 0)
                     {
                         //В задании указано исупользовать этот метод, но особого смысла (конкретно тут) я не вижу. Считывание происходит слишком быстро
                         //и найболее вероятной точкой вызова OperationCanceledException будет Task.Delay.
                         token.ThrowIfCancellationRequested();
+                        //Конвертим в строку с указание точного количества чаров, которые нам нужны, т.к. в конце считывание файла,
+                        //массив не полность будет перезаписан и в конце останутся чары с прошлой иттерации.
                         Console.WriteLine(new string(chars, 0, readed));
                         charsReaded += readed;
                         await Task.Delay(1000, token);
                     }
-
-
-
-                    //int charsToRead = 50;
-                    //int readed = 0;
-                    //char[] chars = new char[charsToRead];
-                    //while ((readed = await streamReader.ReadBlockAsync(chars, 0, charsToRead)) != 0)
-                    //{
-                    //    Console.WriteLine(chars);
-                    //    await Task.Delay(1000);
-                    //}
-
-
-
-
                     return charsReaded;
                 }
                 catch (OperationCanceledException)
@@ -117,8 +80,6 @@
                     return charsReaded;
                 }
             }
-
         }
-
     }
 }
