@@ -7,4 +7,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="M:\Repos\Hillel\Hillel_homeworks\Hillel_hw_11\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="M:\Repos\Hillel\Hillel_homeworks\Hillel_hw_11\.editorconfig" />
+  </ItemGroup>
+
 </Project>

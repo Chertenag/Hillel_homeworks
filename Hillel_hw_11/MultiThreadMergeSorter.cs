@@ -1,5 +1,8 @@
 ﻿internal partial class Program
 {
+    /// <summary>
+    /// Позволяет выполнять сортировку слиянием используя механизмы многопоточности.
+    /// </summary>
     public static class MultiThreadMergeSorter
     {
         /// <summary>
@@ -20,12 +23,13 @@
                     int leftCount = count / 2;
                     int rightCount = count - leftCount;
 
-                    //Дальнейшее деление левой половины массива в новом таске.
+                    // Дальнейшее деление левой половины массива в новом таске.
                     int[] leftArray = new int[leftCount];
                     Array.Copy(inputArray, 0, leftArray, 0, leftCount);
-                    Task leftTask = Task.Run(() =>
+                    Task leftTask = Task.Run(
+                        () =>
                     {
-                        //Вот хз, нужна ли тут тоже конструкция с try/catch, проверкой токена и выводом сообщения об отмене задачи.
+                        // Вот хз, нужна ли тут тоже конструкция с try/catch, проверкой токена и выводом сообщения об отмене задачи.
                         leftArray = DivideAndMergeSort(leftArray, token);
                     }, token);
 
@@ -33,17 +37,18 @@
 
                     token.ThrowIfCancellationRequested();
 
-                    //Дальнейшее деление правой половины массива в новом таске.
+                    // Дальнейшее деление правой половины массива в новом таске.
                     int[] rightArray = new int[rightCount];
                     Array.Copy(inputArray, leftCount, rightArray, 0, rightCount);
-                    Task rightTask = Task.Run(() =>
+                    Task rightTask = Task.Run(
+                        () =>
                     {
                         rightArray = DivideAndMergeSort(rightArray, token);
                     }, token);
 
                     Console.WriteLine($"Thread ID: {Thread.CurrentThread.ManagedThreadId}. Right divide {rightCount}.");
 
-                    //Ожидание тасков.
+                    // Ожидание тасков.
                     leftTask.Wait(token);
                     rightTask.Wait(token);
 
@@ -55,7 +60,6 @@
                 {
                     return inputArray;
                 }
-
             }
             catch (OperationCanceledException)
             {
@@ -74,10 +78,12 @@
             try
             {
                 Console.WriteLine($"Thread ID: {Thread.CurrentThread.ManagedThreadId}. Merge {left.Length + right.Length}.");
-                //Индексы массивов для итерации.
+
+                // Индексы массивов для итерации.
                 int l = 0, r = 0;
                 int[] rez = new int[left.Length + right.Length];
-                //Главный цикл в котором последовательно выбираем меньший элемент из масивов и записываем в новый.
+
+                // Главный цикл в котором последовательно выбираем меньший элемент из масивов и записываем в новый.
                 while (l < left.Length && r < right.Length)
                 {
                     token.ThrowIfCancellationRequested();
@@ -92,20 +98,22 @@
                         r++;
                     }
                 }
-                //Два цикла, один из которых запустится, когда все элементы другого будут использованы в передыдущем цикле.
-                //Дозапишет оставшиеся элементы в результат.
+
+                // Два цикла, один из которых запустится, когда все элементы другого будут использованы в передыдущем цикле.
+                // Дозапишет оставшиеся элементы в результат.
                 while (l < left.Length)
                 {
                     rez[l + r] = left[l];
                     l++;
                 }
+
                 while (r < right.Length)
                 {
                     rez[l + r] = right[r];
                     r++;
                 }
-                return rez;
 
+                return rez;
             }
             catch (OperationCanceledException)
             {
