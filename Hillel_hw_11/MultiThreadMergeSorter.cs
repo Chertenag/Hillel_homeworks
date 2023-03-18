@@ -1,4 +1,4 @@
-﻿internal partial class Program
+﻿namespace Hillel_hw_11
 {
     /// <summary>
     /// Позволяет выполнять сортировку слиянием используя механизмы многопоточности.
@@ -28,10 +28,10 @@
                     Array.Copy(inputArray, 0, leftArray, 0, leftCount);
                     Task leftTask = Task.Run(
                         () =>
-                    {
-                        // Вот хз, нужна ли тут тоже конструкция с try/catch, проверкой токена и выводом сообщения об отмене задачи.
-                        leftArray = DivideAndMergeSort(leftArray, token);
-                    }, token);
+                        {
+                            // Вот хз, нужна ли тут тоже конструкция с try/catch, проверкой токена и выводом сообщения об отмене задачи.
+                            leftArray = DivideAndMergeSort(leftArray, token);
+                        }, token);
 
                     Console.WriteLine($"Thread ID: {Thread.CurrentThread.ManagedThreadId}. Left divide {leftCount}.");
 
@@ -42,9 +42,9 @@
                     Array.Copy(inputArray, leftCount, rightArray, 0, rightCount);
                     Task rightTask = Task.Run(
                         () =>
-                    {
-                        rightArray = DivideAndMergeSort(rightArray, token);
-                    }, token);
+                        {
+                            rightArray = DivideAndMergeSort(rightArray, token);
+                        }, token);
 
                     Console.WriteLine($"Thread ID: {Thread.CurrentThread.ManagedThreadId}. Right divide {rightCount}.");
 
