@@ -1,10 +1,18 @@
 ﻿namespace Hillel_hw_14
 {
+    /// <summary>
+    /// Позволяет выводить в консоль FooBar указанное число раз с использованием AutoResetEvent.
+    /// </summary>
     public static class FooBar
     {
-        private static readonly AutoResetEvent autoReset1 = new(true);
-        private static readonly AutoResetEvent autoReset2 = new(false);
+        private static readonly AutoResetEvent AutoReset1 = new(true);
+        private static readonly AutoResetEvent AutoReset2 = new(false);
 
+        /// <summary>
+        /// Запуск основного метода вывода FooBar и сообщения с результатом (кол-во выводов).
+        /// </summary>
+        /// <param name="count">Количество выводов FooBar в консоль.</param>
+        /// <returns>Вовзврат Task, представляющий из себя выолнение текущей задачи.</returns>
         public static async Task Run(int count)
         {
             await FooBarToConsole(count);
@@ -21,9 +29,9 @@
         {
             for (int i = 0; i < n; i++)
             {
-                autoReset1.WaitOne();
+                AutoReset1.WaitOne();
                 Console.Write("foo");
-                autoReset2.Set();
+                AutoReset2.Set();
             }
         }
 
@@ -31,9 +39,9 @@
         {
             for (int i = 0; i < n; i++)
             {
-                autoReset2.WaitOne();
+                AutoReset2.WaitOne();
                 Console.Write("bar");
-                autoReset1.Set();
+                AutoReset1.Set();
             }
         }
     }

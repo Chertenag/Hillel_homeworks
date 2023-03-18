@@ -1,9 +1,11 @@
 ﻿namespace Hillel_hw_14
 {
+    /// <summary>
+    /// Основной класс приложения.
+    /// </summary>
     internal class Program
     {
-
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             while (true)
             {
@@ -11,7 +13,7 @@
                 string? value = Console.ReadLine();
                 if (value != null)
                 {
-                    if (Int32.TryParse(value, out int count))
+                    if (int.TryParse(value, out int count))
                     {
                         if (count < 0)
                         {
@@ -26,6 +28,7 @@
                     {
                         Console.WriteLine($"{value} is not a number.");
                     }
+
                     Console.WriteLine();
                 }
             }
