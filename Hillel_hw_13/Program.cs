@@ -4,26 +4,34 @@ namespace Hillel_hw_13
 {
     internal class Program
     {
-        private static Mutex mutex = new Mutex();
+        private static readonly Mutex mutex = new();
 
         static async Task Main(string[] args)
         {
 
-            //Почему так вообще не работает.?..
+            //Почему-то так вообще не работает?...
+
+            // 1.
             //Task odd = OddNumbersAsync();
             //Task even = EvenNumbersAsync();
             //await Task.WhenAll(odd, even);
 
+            // 2.
+            //await Task.WhenAll(OddNumbersAsync(), EvenNumbersAsync());
+
             //Так работает, но раз через раз. Иногда счёт начинается с парных чисел.
+
+            // 1.
             //Task odd = Task.Run(() => OddNumbers());
             //Task even = Task.Run(() => EvenNumbers());
 
+            // 2.
             Task odd = Task.Run(OddNumbersAsync);
             Task even = Task.Run(EvenNumbersAsync);
 
+            // 3.
             //Task.Factory.StartNew(() => OddNumbers());
             //Task.Factory.StartNew(() => EvenNumbers());
-
 
             Console.ReadLine();
         }
