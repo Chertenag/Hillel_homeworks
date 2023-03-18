@@ -9,18 +9,11 @@
         private static readonly AutoResetEvent AutoReset2 = new(false);
 
         /// <summary>
-        /// Запуск основного метода вывода FooBar и сообщения с результатом (кол-во выводов).
+        /// Запуск основного метода вывода FooBar в консоль.
         /// </summary>
         /// <param name="count">Количество выводов FooBar в консоль.</param>
         /// <returns>Вовзврат Task, представляющий из себя выолнение текущей задачи.</returns>
         public static async Task Run(int count)
-        {
-            await FooBarToConsole(count);
-            Console.WriteLine();
-            Console.WriteLine($"End writing with {count} FooBar`s.");
-        }
-
-        private static async Task FooBarToConsole(int count)
         {
             await Task.WhenAll(Task.Run(() => Foo(count)), Task.Run(() => Bar(count)));
         }

@@ -22,6 +22,9 @@
                         else
                         {
                             await FooBar.Run(count);
+                            Console.WriteLine();
+                            Console.WriteLine($"End writing with {count} FooBar`s.");
+
                         }
                     }
                     else
