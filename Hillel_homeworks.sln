@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_14_MsTests", "Hil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_18", "Hillel_hw_18\Hillel_hw_18.csproj", "{477AEE97-B9D0-4C0C-8F61-FD661BFBBD2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_16", "Hillel_hw_16\Hillel_hw_16.csproj", "{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,10 @@ Global
 		{477AEE97-B9D0-4C0C-8F61-FD661BFBBD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{477AEE97-B9D0-4C0C-8F61-FD661BFBBD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{477AEE97-B9D0-4C0C-8F61-FD661BFBBD2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
