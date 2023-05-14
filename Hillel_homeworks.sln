@@ -36,11 +36,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_14", "Hillel_hw_1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_14_MsTests", "Hillel_hw_14_MsTests\Hillel_hw_14_MsTests.csproj", "{8F1B6364-515C-4AF4-9851-A4F814B331C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_18", "Hillel_hw_18\Hillel_hw_18.csproj", "{477AEE97-B9D0-4C0C-8F61-FD661BFBBD2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_18", "Hillel_hw_18\Hillel_hw_18.csproj", "{477AEE97-B9D0-4C0C-8F61-FD661BFBBD2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_16", "Hillel_hw_16\Hillel_hw_16.csproj", "{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_16", "Hillel_hw_16\Hillel_hw_16.csproj", "{1A2E2632-40EF-47AE-BB5F-4494EF8DDF77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_15", "Hillel_hw_15\Hillel_hw_15.csproj", "{B2694B12-9C09-4D8D-9BBE-F8D83A11F05A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillel_hw_15", "Hillel_hw_15\Hillel_hw_15.csproj", "{B2694B12-9C09-4D8D-9BBE-F8D83A11F05A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_27_server", "Hillel_hw_27_server\Hillel_hw_27_server.csproj", "{657065A4-53B1-4D97-9487-E029C9578E10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillel_hw_27_client", "Hillel_hw_27_client\Hillel_hw_27_client.csproj", "{0C32EA61-3D81-4329-8AB3-1772F437200D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +124,14 @@ Global
 		{B2694B12-9C09-4D8D-9BBE-F8D83A11F05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2694B12-9C09-4D8D-9BBE-F8D83A11F05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2694B12-9C09-4D8D-9BBE-F8D83A11F05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{657065A4-53B1-4D97-9487-E029C9578E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{657065A4-53B1-4D97-9487-E029C9578E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{657065A4-53B1-4D97-9487-E029C9578E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{657065A4-53B1-4D97-9487-E029C9578E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C32EA61-3D81-4329-8AB3-1772F437200D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C32EA61-3D81-4329-8AB3-1772F437200D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C32EA61-3D81-4329-8AB3-1772F437200D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C32EA61-3D81-4329-8AB3-1772F437200D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
